@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN"
+        "HTMLFiles/xhtml-math11-f.dtd">
+
+<!-- Created by Wolfram Mathematica 9.0 for Students - Personal Use Only : www.wolfram.com -->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+ <title>
+  demo (Wolfram Mathematica 9.0 for Students - Personal Use Only : www.wolfram.com)
+ </title>
+ <link href="HTMLFiles/demo.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+<p class="Text">
+ <span class="SectionInline">DataTricks</span><br /><br /><span style='font-weight: bold;'>DataTricks</span> is a simple <span style='font-style: italic;'>Mathematica</span> package for extracting data from Excel workbooks. It does not depend on ExcelLink, and improves upon the built-in <span style='font-weight: bold;'>Import</span> command in several ways:<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;1. There are no limits to the size of the workbook that can be imported; <br />&nbsp;&nbsp;&nbsp;&nbsp;2. All workbook formats readable by Excel can be imported;<br />&nbsp;&nbsp;&nbsp;&nbsp;3. Workbooks can refresh their sources before the data are extracted; and<br />&nbsp;&nbsp;&nbsp;&nbsp;4. Excel ranges and Named ranges can be used to select data.<br /><br /><span class="SubsectionInline">Installing &amp; Using DataTricks<br /></span>DataTricks only works on Windows, and needs Excel 2010 or later to work. It also needs the Office Primary Interop Assemblies installed; see <span><a href="https://msdn.microsoft.com/en-us/library/15s06t57.aspx"><span class="HyperlinkInline">this link</span></a></span> for more information.<br /><br />Download <span style='font-weight: bold;'>DataTricks.m</span> to your harddisk from <span><a href="https://raw.githubusercontent.com/kuperov/DataTricks/master/DataTricks.m"><span class="HyperlinkInline">here</span></a></span>. In <span style='font-style: italic;'>Mathematica</span>, choose <span style='font-style: italic;'>Install...</span> from the <span style='font-style: italic;'>File</span> menu. Select <span style='font-style: italic;'>Package</span> as the file type, select <span style='font-style: italic;'>File</span> as the source, and navigate to the downloaded file. Click OK.<br /><br />In your notebook, import the <span style='font-weight: bold;'>DataTricks</span> package using a <span style='font-weight: bold;'>Needs[ ... ]</span> statement:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/demo_1.gif" alt="demo_1.gif" width="157" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ You can import excel data using the <span style='font-weight: bold;'>importExcel[ ... ]</span> command, or <span style='font-weight: bold;'>importExcelTS[ ... ]</span> for time series data. The syntax is as follows:<br /><br />{data1, data2, ...} = importExcel[&ldquo;data.xlsx&rdquo;,{{&rdquo;Sheet1&rdquo;, &ldquo;SummaryTable&rdquo;}, {&ldquo;Sheet2&rdquo;, &ldquo;A2:C8&rdquo;}, ...}, refreshWorkbook&rarr; True]<br /><br />The syntax for importExcelTS is similar, but an additional option, <span style='font-weight: bold;'>dateColumn</span> is available:<br /><br />{ts1, ts2, ts3, ... } = importExcelTS[&ldquo;data.xlsx&rdquo;, {&ldquo;Data&rdquo;,{&ldquo;K:K&rdquo;,&rdquo;C:C&rdquo;,&rdquo;I:I&rdquo;}}, dropHeaderRows&rarr; 11, dataColumn &rarr; &ldquo;A&rdquo;] ;
+</p>
+
+
+
+<p class="Text">
+ <span class="SubsectionInline">Example 1 : A Simple Table<br /></span>The simplest way to import data is to call importExcel[...] with the file name, sheet name, and an Excel range reference. The range reference can be in R1C1 format (e.g. A1:B7) or a named range. The use of named ranges can help prevent hard-coded cell references, which can lead to errors when the dimensions of the source data change.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/demo_2.gif" alt="demo_2.gif" width="690" height="31" style="vertical-align:middle" />
+</p>
+
+<table class='Output'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span>GDP (QoQ)</span></td>
+  <td style='text-align: left;'><span>14Q4</span></td>
+  <td style='text-align: left;'><span>0.6</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span>Service sector output (3Mo3M)</span></td>
+  <td style='text-align: left;'><span>3m to January</span></td>
+  <td style='text-align: left;'><span>0.8</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span>Industrial production (3Mo3M)</span></td>
+  <td style='text-align: left;'><span>3m to January</span></td>
+  <td style='text-align: left;'><span>0.</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span>Manufacturing output (3Mo3M)</span></td>
+  <td style='text-align: left;'><span>3m to January</span></td>
+  <td style='text-align: left;'><span>0.4</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span>GfK Consumer Confidence</span></td>
+  <td style='text-align: left;'><span>March</span></td>
+  <td style='text-align: left;'><span>4.</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span>Retail sales volumes (YoY)</span></td>
+  <td style='text-align: left;'><span>February</span></td>
+  <td style='text-align: left;'><span>5.7</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span>Fixed investment (QoQ)</span></td>
+  <td style='text-align: left;'><span>14Q4</span></td>
+  <td style='text-align: left;'><span>-0.6</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span>Goods exports (volumes) (MoM)</span></td>
+  <td style='text-align: left;'><span>January </span></td>
+  <td style='text-align: left;'><span>-3.1</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span>Goods imports (volumes) (MoM)</span></td>
+  <td style='text-align: left;'><span>January </span></td>
+  <td style='text-align: left;'><span>-4.8</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span>Current account balance, &pound;bn</span></td>
+  <td style='text-align: left;'><span>14Q4</span></td>
+  <td style='text-align: left;'><span>-25.3</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span>Business Investment (QoQ)</span></td>
+  <td style='text-align: left;'><span>14Q4</span></td>
+  <td style='text-align: left;'><span>-0.9</span></td>
+ </tr>
+</table>
+
+<p class="Text">
+ <span class="SubsectionInline">Example 2 : Time Series Data</span><br /><br /><span style='font-weight: bold;'>DataTricks</span> includes some convenience methods for loading time series data, in the format expected by <span style='font-weight: bold;'>DateListPlot</span>. Data are assumed to be set up in columns, with header rows. By default, dates are assumed to be in column A, although this can be overridden using the <span style='font-weight: bold;'>dateColumn</span> option.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/demo_3.gif" alt="demo_3.gif" width="684" height="65" style="vertical-align:middle" />
+</p>
+
+<table class='Output'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span>AUS Unemployment Rate</span></td>
+  <td style='text-align: left;'><span>AUS Participation Rate</span></td>
+  <td style='text-align: left;'><span>AUS Employment:Population</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span><img src="HTMLFiles/demo_4.gif" alt="demo_4.gif" width="360" height="232" style="vertical-align:middle" /></span></td>
+  <td style='text-align: left;'><span><img src="HTMLFiles/demo_5.gif" alt="demo_5.gif" width="360" height="232" style="vertical-align:middle" /></span></td>
+  <td style='text-align: left;'><span><img src="HTMLFiles/demo_6.gif" alt="demo_6.gif" width="360" height="232" style="vertical-align:middle" /></span></td>
+ </tr>
+</table>
+
+
+
+
+<div style="font-family:Helvetica; font-size:11px; width:100%; border:1px none #999999; border-top-style:solid; padding-top:2px; margin-top:20px;">
+ <a href="http://www.wolfram.com/products/mathematica/" style="color:#000; text-decoration:none;">
+  <img src="HTMLFiles/spikeyIcon.png" alt="Spikey" width="20" height="21" style="padding-right:2px; border:0px solid white; vertical-align:middle;" />
+  <span style="color:#555555">Created with</span> Wolfram <span style="font-style: italic;">Mathematica</span> 9.0
+ </a>
+</div>
+</body>
+
+</html>
