@@ -18,17 +18,17 @@
  <span class="SectionInline">DataTricks</span><br /><br /><span style='font-weight: bold;'>DataTricks</span> is a simple <span style='font-style: italic;'>Mathematica</span> package for extracting data from Excel workbooks. It does not depend on ExcelLink, and improves upon the built-in <span style='font-weight: bold;'>Import</span> command in several ways:<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;1. There are no limits to the size of the workbook that can be imported; <br />&nbsp;&nbsp;&nbsp;&nbsp;2. All workbook formats readable by Excel can be imported;<br />&nbsp;&nbsp;&nbsp;&nbsp;3. Workbooks can refresh their sources before the data are extracted; and<br />&nbsp;&nbsp;&nbsp;&nbsp;4. Excel ranges and Named ranges can be used to select data.<br /><br /><span class="SubsectionInline">Installing &amp; Using DataTricks<br /></span>DataTricks only works on Windows, and needs Excel 2010 or later to work. It also needs the Office Primary Interop Assemblies installed; see <span><a href="https://msdn.microsoft.com/en-us/library/15s06t57.aspx"><span class="HyperlinkInline">this link</span></a></span> for more information.<br /><br />Download <span style='font-weight: bold;'>DataTricks.m</span> to your harddisk from <span><a href="https://raw.githubusercontent.com/kuperov/DataTricks/master/DataTricks.m"><span class="HyperlinkInline">here</span></a></span>. In <span style='font-style: italic;'>Mathematica</span>, choose <span style='font-style: italic;'>Install...</span> from the <span style='font-style: italic;'>File</span> menu. Select <span style='font-style: italic;'>Package</span> as the file type, select <span style='font-style: italic;'>File</span> as the source, and navigate to the downloaded file. Click OK.<br /><br />In your notebook, import the <span style='font-weight: bold;'>DataTricks</span> package using a <span style='font-weight: bold;'>Needs[ ... ]</span> statement:
 </p>
 
-
-
 <p class="Input">
  <img src="HTMLFiles/demo_1.gif" alt="demo_1.gif" width="157" height="13" style="vertical-align:middle" />
 </p>
 
 <p class="Text">
- You can import excel data using the <span style='font-weight: bold;'>importExcel[ ... ]</span> command, or <span style='font-weight: bold;'>importExcelTS[ ... ]</span> for time series data. The syntax is as follows:<br /><br />{data1, data2, ...} = importExcel[&ldquo;data.xlsx&rdquo;,{{&rdquo;Sheet1&rdquo;, &ldquo;SummaryTable&rdquo;}, {&ldquo;Sheet2&rdquo;, &ldquo;A2:C8&rdquo;}, ...}, refreshWorkbook&rarr; True]<br /><br />The syntax for importExcelTS is similar, but an additional option, <span style='font-weight: bold;'>dateColumn</span> is available:<br /><br />{ts1, ts2, ts3, ... } = importExcelTS[&ldquo;data.xlsx&rdquo;, {&ldquo;Data&rdquo;,{&ldquo;K:K&rdquo;,&rdquo;C:C&rdquo;,&rdquo;I:I&rdquo;}}, dropHeaderRows&rarr; 11, dataColumn &rarr; &ldquo;A&rdquo;] ;
+ You can import excel data using the <span style='font-weight: bold;'>importExcel[ ... ]</span> command, or <span style='font-weight: bold;'>importExcelTS[ ... ]</span> for time series data. The syntax is as follows:<br /><br />{data1, data2, ...} = importExcel[&ldquo;data.xlsx&rdquo;,{{&rdquo;Sheet1&rdquo;, &ldquo;SummaryTable&rdquo;}, {&ldquo;Sheet2&rdquo;, &ldquo;A2:C8&rdquo;}, ...}, refreshWorkbook&rarr; True]<br /><br />The syntax for importExcelTS is similar, but an additional option, <span style='font-weight: bold;'>dateColumn</span> is available:<br />
 </p>
 
-
+<p Class="Input">
+  {ts1, ts2, ts3, ... } = importExcelTS[&ldquo;data.xlsx&rdquo;, {&ldquo;Data&rdquo;,{&ldquo;K:K&rdquo;,&rdquo;C:C&rdquo;,&rdquo;I:I&rdquo;}}, dropHeaderRows&rarr; 11, dateColumn &rarr; &ldquo;A&rdquo;] ;
+</p>
 
 <p class="Text">
  <span class="SubsectionInline">Example 1 : A Simple Table<br /></span>The simplest way to import data is to call importExcel[...] with the file name, sheet name, and an Excel range reference. The range reference can be in R1C1 format (e.g. A1:B7) or a named range. The use of named ranges can help prevent hard-coded cell references, which can lead to errors when the dimensions of the source data change.
