@@ -7,37 +7,31 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
  <title>
-  demo (Wolfram Mathematica 9.0 for Students - Personal Use Only : www.wolfram.com)
+  demo2 (Wolfram Mathematica 9.0 for Students - Personal Use Only : www.wolfram.com)
  </title>
- <link href="HTMLFiles/demo.css" rel="stylesheet" type="text/css" />
+ <link href="HTMLFiles/index.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
 
 <p class="Text">
- <span class="SectionInline">DataTricks</span><br /><br /><span style='font-weight: bold;'>DataTricks</span> is a simple <span style='font-style: italic;'>Mathematica</span> package for extracting data from Excel workbooks. It does not depend on ExcelLink, and improves upon the built-in <span style='font-weight: bold;'>Import</span> command in several ways:<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;1. There are no limits to the size of the workbook that can be imported; <br />&nbsp;&nbsp;&nbsp;&nbsp;2. All workbook formats readable by Excel can be imported;<br />&nbsp;&nbsp;&nbsp;&nbsp;3. Workbooks can refresh their sources before the data are extracted; and<br />&nbsp;&nbsp;&nbsp;&nbsp;4. Excel ranges and Named ranges can be used to select data.<br /><br /><span class="SubsectionInline">Installing &amp; Using DataTricks<br /></span>DataTricks only works on Windows, and needs Excel 2010 or later to work. It also needs the Office Primary Interop Assemblies installed; see <span><a href="https://msdn.microsoft.com/en-us/library/15s06t57.aspx"><span class="HyperlinkInline">this link</span></a></span> for more information.<br /><br />Download <span style='font-weight: bold;'>DataTricks.m</span> to your harddisk from <span><a href="https://raw.githubusercontent.com/kuperov/DataTricks/master/DataTricks.m"><span class="HyperlinkInline">here</span></a></span>. In <span style='font-style: italic;'>Mathematica</span>, choose <span style='font-style: italic;'>Install...</span> from the <span style='font-style: italic;'>File</span> menu. Select <span style='font-style: italic;'>Package</span> as the file type, select <span style='font-style: italic;'>File</span> as the source, and navigate to the downloaded file. Click OK.<br /><br />In your notebook, import the <span style='font-weight: bold;'>DataTricks</span> package using a <span style='font-weight: bold;'>Needs[ ... ]</span> statement:
+ <span class="SectionInline">DataTricks</span><br /><br /><span style='font-weight: bold;'>DataTricks</span> is a simple <span style='font-style: italic;'>Mathematica</span> package for extracting data from Excel workbooks. It does not depend on ExcelLink, and improves upon the built-in <span style='font-weight: bold;'>Import</span> command in several ways:<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;1. There are no limits to the size of the workbook that can be imported; <br />&nbsp;&nbsp;&nbsp;&nbsp;2. All workbook formats readable by Excel can be imported;<br />&nbsp;&nbsp;&nbsp;&nbsp;3. Workbooks can refresh their sources before the data are extracted; and<br />&nbsp;&nbsp;&nbsp;&nbsp;4. Excel ranges and Named ranges can be used to select data.
 </p>
 
 
 
 <p class="Input">
- <img src="HTMLFiles/demo_1.gif" alt="demo_1.gif" width="157" height="13" style="vertical-align:middle" />
+ <img src="HTMLFiles/index_1.gif" alt="index_1.gif" width="157" height="13" style="vertical-align:middle" />
 </p>
 
 <p class="Text">
- You can import excel data using the <span style='font-weight: bold;'>importExcel[ ... ]</span> command, or <span style='font-weight: bold;'>importExcelTS[ ... ]</span> for time series data. The syntax is as follows:<br /><br />{data1, data2, ...} = importExcel[&ldquo;data.xlsx&rdquo;,{{&rdquo;Sheet1&rdquo;, &ldquo;SummaryTable&rdquo;}, {&ldquo;Sheet2&rdquo;, &ldquo;A2:C8&rdquo;}, ...}, refreshWorkbook&rarr; True]<br /><br />The syntax for importExcelTS is similar, but an additional option, <span style='font-weight: bold;'>dateColumn</span> is available:<br /><br />{ts1, ts2, ts3, ... } = importExcelTS[&ldquo;data.xlsx&rdquo;, {&ldquo;Data&rdquo;,{&ldquo;K:K&rdquo;,&rdquo;C:C&rdquo;,&rdquo;I:I&rdquo;}}, dropHeaderRows&rarr; 11, dataColumn &rarr; &ldquo;A&rdquo;] ;
-</p>
-
-
-
-<p class="Text">
- <span class="SubsectionInline">Example 1 : A Simple Table<br /></span>The simplest way to import data is to call importExcel[...] with the file name, sheet name, and an Excel range reference. The range reference can be in R1C1 format (e.g. A1:B7) or a named range. The use of named ranges can help prevent hard-coded cell references, which can lead to errors when the dimensions of the source data change.
+ <span class="SubsectionInline">Example 1 : A Simple Table<br /></span>The simplest way to import data is to call <span style='font-weight: bold;'>importExcel[...]</span> with the file name, sheet name, and an Excel range reference:
 </p>
 
 
 
 <p class="Input">
- <img src="HTMLFiles/demo_2.gif" alt="demo_2.gif" width="690" height="31" style="vertical-align:middle" />
+ <img src="HTMLFiles/index_2.gif" alt="index_2.gif" width="515" height="13" style="vertical-align:middle" />
 </p>
 
 <table class='Output'>
@@ -99,25 +93,108 @@
 </table>
 
 <p class="Text">
- <span class="SubsectionInline">Example 2 : Time Series Data</span><br /><br /><span style='font-weight: bold;'>DataTricks</span> includes some convenience methods for loading time series data, in the format expected by <span style='font-weight: bold;'>DateListPlot</span>. Data are assumed to be set up in columns, with header rows. By default, dates are assumed to be in column A, although this can be overridden using the <span style='font-weight: bold;'>dateColumn</span> option.
+ To make code more readable and maintainable, named ranges can be used in place of hard-coded range formats. And when just a single range is needed, the sheet and range can be given directly:
 </p>
 
 
 
 <p class="Input">
- <img src="HTMLFiles/demo_3.gif" alt="demo_3.gif" width="684" height="65" style="vertical-align:middle" />
+ <img src="HTMLFiles/index_3.gif" alt="index_3.gif" width="506" height="13" style="vertical-align:middle" />
 </p>
 
 <table class='Output'>
  <tr style='vertical-align: baseline;'>
-  <td style='text-align: left;'><span>AUS Unemployment Rate</span></td>
-  <td style='text-align: left;'><span>AUS Participation Rate</span></td>
-  <td style='text-align: left;'><span>AUS Employment:Population</span></td>
+  <td style='text-align: left;'><span>GDP (QoQ)</span></td>
+  <td style='text-align: left;'><span>14Q4</span></td>
+  <td style='text-align: left;'><span>0.6</span></td>
  </tr>
  <tr style='vertical-align: baseline;'>
-  <td style='text-align: left;'><span><img src="HTMLFiles/demo_4.gif" alt="demo_4.gif" width="360" height="232" style="vertical-align:middle" /></span></td>
-  <td style='text-align: left;'><span><img src="HTMLFiles/demo_5.gif" alt="demo_5.gif" width="360" height="232" style="vertical-align:middle" /></span></td>
-  <td style='text-align: left;'><span><img src="HTMLFiles/demo_6.gif" alt="demo_6.gif" width="360" height="232" style="vertical-align:middle" /></span></td>
+  <td style='text-align: left;'><span>Service sector output (3Mo3M)</span></td>
+  <td style='text-align: left;'><span>3m to January</span></td>
+  <td style='text-align: left;'><span>0.8</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span>Industrial production (3Mo3M)</span></td>
+  <td style='text-align: left;'><span>3m to January</span></td>
+  <td style='text-align: left;'><span>0.</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span>Manufacturing output (3Mo3M)</span></td>
+  <td style='text-align: left;'><span>3m to January</span></td>
+  <td style='text-align: left;'><span>0.4</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span>GfK Consumer Confidence</span></td>
+  <td style='text-align: left;'><span>March</span></td>
+  <td style='text-align: left;'><span>4.</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span>Retail sales volumes (YoY)</span></td>
+  <td style='text-align: left;'><span>February</span></td>
+  <td style='text-align: left;'><span>5.7</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span>Fixed investment (QoQ)</span></td>
+  <td style='text-align: left;'><span>14Q4</span></td>
+  <td style='text-align: left;'><span>-0.6</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span>Goods exports (volumes) (MoM)</span></td>
+  <td style='text-align: left;'><span>January </span></td>
+  <td style='text-align: left;'><span>-3.1</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span>Goods imports (volumes) (MoM)</span></td>
+  <td style='text-align: left;'><span>January </span></td>
+  <td style='text-align: left;'><span>-4.8</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span>Current account balance, &pound;bn</span></td>
+  <td style='text-align: left;'><span>14Q4</span></td>
+  <td style='text-align: left;'><span>-25.3</span></td>
+ </tr>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span>Business Investment (QoQ)</span></td>
+  <td style='text-align: left;'><span>14Q4</span></td>
+  <td style='text-align: left;'><span>-0.9</span></td>
+ </tr>
+</table>
+
+<p class="Text">
+ <span class="SubsectionInline">Example 2 : Time Series Data</span><br /><br /><span style='font-weight: bold;'>DataTricks</span> includes some convenience methods for loading time series data, in the format expected by <span style='font-weight: bold;'>DateListPlot</span>. Data are assumed to be set up in columns, with header rows. By default, dates are in column A.
+</p>
+
+
+
+<p class="Text">
+ This demo uses data at the following URL:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_4.gif" alt="index_4.gif" width="578" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ This spreadsheet contains three data ranges of interest, in columns K, C, and I. The dates for each observation are in column A,&nbsp;&nbsp;which we could override by passing the option <span style='font-weight: bold;'>dateColumn</span> -&gt; &ldquo;X&rdquo;.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_5.gif" alt="index_5.gif" width="843" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_6.gif" alt="index_6.gif" width="263" height="13" style="vertical-align:middle" />
+</p>
+
+<table class='Output'>
+ <tr style='vertical-align: baseline;'>
+  <td style='text-align: left;'><span><img src="HTMLFiles/index_7.gif" alt="index_7.gif" width="360" height="232" style="vertical-align:middle" /></span></td>
+  <td style='text-align: left;'><span><img src="HTMLFiles/index_8.gif" alt="index_8.gif" width="360" height="232" style="vertical-align:middle" /></span></td>
+  <td style='text-align: left;'><span><img src="HTMLFiles/index_9.gif" alt="index_9.gif" width="360" height="232" style="vertical-align:middle" /></span></td>
  </tr>
 </table>
 
