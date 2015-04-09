@@ -91,7 +91,7 @@ grabTSData[wb_Symbol,dropRows_Integer,dateColumn_String,{sheetName_String,rangeN
  * Raises messages if Excel can't be instantiated or the file doesn't exist. *) 
 openWorkbook[filename_String,refresh_] := Module[{excel,fileToOpen},
 	(* emit a warning (but don't bail) if we can't see the file -- but not if it looks like a URL *)
-	fileToOpen = If[StringMatchQ[filename,RegularExpression["^(http|HTTP)[sS]?://"]],
+	fileToOpen = If[StringMatchQ[filename,RegularExpression["(https?|HTTPS?)://.+"]],
 		filename, (* it's a URL, move on *)
 		If[FileExistsQ[FindFile[filename]],
 			FindFile[filename],
