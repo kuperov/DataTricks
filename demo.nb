@@ -10,16 +10,16 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     72354,       1615]
-NotebookOptionsPosition[     71769,       1591]
-NotebookOutlinePosition[     72112,       1606]
-CellTagsIndexPosition[     72069,       1603]
+NotebookDataLength[     77983,       1740]
+NotebookOptionsPosition[     76910,       1702]
+NotebookOutlinePosition[     77253,       1717]
+CellTagsIndexPosition[     77210,       1714]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
 Cell[TextData[{
- StyleBox["DataTricks Demo", "Section"],
+ StyleBox["DataTricks", "Section"],
  "\n\n",
  StyleBox["DataTricks", "Code"],
  " is a simple ",
@@ -35,12 +35,15 @@ are extracted; and\n\t4. Excel ranges and Named ranges can be used to select \
 data."
 }], "Text",
  CellChangeTimes->{{3.6371146560979*^9, 3.6371146861393003`*^9}, {
-  3.6371147371391*^9, 3.6371148189623003`*^9}, {3.6371148578157*^9, 
-  3.6371149031329*^9}, {3.6371150171889*^9, 3.6371150428169003`*^9}, {
-  3.6371151485083*^9, 3.6371151561366997`*^9}}],
+   3.6371147371391*^9, 3.6371148189623003`*^9}, {3.6371148578157*^9, 
+   3.6371149031329*^9}, {3.6371150171889*^9, 3.6371150428169003`*^9}, {
+   3.6371151485083*^9, 3.6371151561366997`*^9}, 3.6375209679172*^9}],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"Needs", "[", "\"\<DataTricks`\>\"", "]"}]], "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
  CellChangeTimes->{{3.6369635689269*^9, 3.6369636088922997`*^9}, {
    3.6369636877406*^9, 3.6369637560045*^9}, {3.6369640212859*^9, 
    3.6369641078767*^9}, {3.6369641903822002`*^9, 3.6369641932726*^9}, {
@@ -50,34 +53,18 @@ Cell[BoxData[
    3.6371099315589*^9, {3.6371114500393*^9, 3.6371114538673*^9}, {
    3.6371115740087*^9, 3.6371116002075*^9}, {3.6371126325109*^9, 
    3.6371126455565*^9}, 3.6371145703318996`*^9, {3.6371147153555*^9, 
-   3.6371147158079*^9}}],
+   3.6371147158079*^9}, 3.6375209425048*^9}],
 
-Cell[TextData[{
- StyleBox["Example 1 : A Simple Table\n", "Subsection"],
- "The simplest way to import data is to call importExcel[...] with the file \
-name, sheet name, and an Excel range reference. The range reference can be in \
-R1C1 format (e.g. A1:B7) or a named range. The use of named ranges can help \
-prevent hard-coded cell references, which can lead to errors when the \
-dimensions of the source data change."
-}], "Text",
- CellChangeTimes->{{3.6371145732843*^9, 3.6371146082921*^9}, {
-  3.6371149462235003`*^9, 3.6371150099193*^9}, {3.6371150478401003`*^9, 
-  3.6371150950979*^9}, {3.6371151793494997`*^9, 3.6371151812683*^9}}],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[{
+Cell[BoxData[
  RowBox[{
-  RowBox[{"SetDirectory", "[", 
-   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"importExcel", "[", 
+  RowBox[{
+   RowBox[{"SetDirectory", "[", 
+    RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ";"}], " ", 
+  RowBox[{"(*", " ", 
    RowBox[{
-   "\"\<sample.xlsx\>\"", ",", "\"\<Sheet1\>\"", ",", " ", 
-    "\"\<SummaryTable\>\"", ",", " ", 
-    RowBox[{"refreshWorkbook", "\[Rule]", " ", "True"}]}], "]"}], " ", "//", 
-  " ", "TableForm"}]}], "Input",
+   "files", " ", "are", " ", "in", " ", "same", " ", "dir", " ", "as", " ", 
+    "notebook"}], " ", "*)"}]}]], "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
  CellChangeTimes->{{3.6369635689269*^9, 3.6369636088922997`*^9}, {
    3.6369636877406*^9, 3.6369637560045*^9}, {3.6369640212859*^9, 
    3.6369641078767*^9}, {3.6369641903822002`*^9, 3.6369641932726*^9}, {
@@ -90,7 +77,49 @@ Cell[BoxData[{
    3.6371147312675*^9}, {3.6371151015427*^9, 3.6371151049455*^9}, {
    3.6371154780081*^9, 3.6371154867285*^9}, {3.6371155606092997`*^9, 
    3.6371156048659*^9}, 3.6371164346848*^9, {3.6371170243322*^9, 
-   3.6371170252214003`*^9}}],
+   3.6371170252214003`*^9}, 3.6375204961104*^9, {3.6375209425048*^9, 
+   3.637520958916*^9}}]
+}, Closed]],
+
+Cell[TextData[{
+ StyleBox["Example 1 : A Simple Table\n", "Subsection"],
+ "The simplest way to import data is to call ",
+ StyleBox["importExcel[...]",
+  FontWeight->"Bold"],
+ " with the file name, sheet name, and an Excel range reference:"
+}], "Text",
+ CellChangeTimes->{{3.6371145732843*^9, 3.6371146082921*^9}, {
+  3.6371149462235003`*^9, 3.6371150099193*^9}, {3.6371150478401003`*^9, 
+  3.6371150950979*^9}, {3.6371151793494997`*^9, 3.6371151812683*^9}, {
+  3.6375209870271997`*^9, 3.6375209881348*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"importExcel", "[", 
+    RowBox[{"\"\<sample.xlsx\>\"", ",", 
+     RowBox[{"{", 
+      RowBox[{"{", 
+       RowBox[{"\"\<Sheet1\>\"", ",", " ", "\"\<B7:D17\>\""}], "}"}], "}"}]}],
+     "]"}], "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], " ", "//",
+   " ", "TableForm"}]], "Input",
+ CellChangeTimes->{{3.6369635689269*^9, 3.6369636088922997`*^9}, {
+   3.6369636877406*^9, 3.6369637560045*^9}, {3.6369640212859*^9, 
+   3.6369641078767*^9}, {3.6369641903822002`*^9, 3.6369641932726*^9}, {
+   3.6369646148945*^9, 3.6369646180351*^9}, {3.6369648695573*^9, 
+   3.6369648782827*^9}, {3.6369651934414997`*^9, 3.6369652034098997`*^9}, 
+   3.6371095324617*^9, {3.6371096106668997`*^9, 3.6371096257209*^9}, 
+   3.6371099315589*^9, {3.6371114500393*^9, 3.6371114538673*^9}, {
+   3.6371115740087*^9, 3.6371116002075*^9}, {3.6371126325109*^9, 
+   3.6371126455565*^9}, 3.6371145703318996`*^9, {3.6371147179919*^9, 
+   3.6371147312675*^9}, {3.6371151015427*^9, 3.6371151049455*^9}, {
+   3.6371154780081*^9, 3.6371154867285*^9}, {3.6371155606092997`*^9, 
+   3.6371156048659*^9}, 3.6371164346848*^9, {3.6371170243322*^9, 
+   3.6371170252214003`*^9}, 3.6375204961104*^9, {3.6375205625352*^9, 
+   3.6375205664508*^9}, 3.6375207250092*^9, {3.6375208877176*^9, 
+   3.6375208899639997`*^9}, {3.6375210015039997`*^9, 3.6375210115816*^9}}],
 
 Cell[BoxData[
  TagBox[GridBox[{
@@ -137,7 +166,61 @@ Cell[BoxData[
    3.6371155697841*^9, 3.6371156063947*^9}, 3.6371160127739*^9, {
    3.6371164360888*^9, 3.6371164633616*^9}, 3.6371166261336*^9, 
    3.637116863416*^9, {3.6371170121113997`*^9, 3.6371170267033997`*^9}, 
-   3.6371171994639997`*^9}]
+   3.6371171994639997`*^9, 3.6375697279058*^9, 3.6375698379398003`*^9}]
+}, Open  ]],
+
+Cell["\<\
+To make code more readable and maintainable, named ranges can be used in \
+place of hard-coded range formats. And when just a single range is needed, \
+the sheet and range can be given directly:\
+\>", "Text",
+ CellChangeTimes->{{3.6375205777139997`*^9, 3.6375206141868*^9}, {
+  3.6375208086408*^9, 3.6375208387176*^9}, {3.6375210233752003`*^9, 
+  3.63752106562*^9}, {3.6375547025656*^9, 3.6375547772896*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"importExcel", "[", 
+   RowBox[{
+   "\"\<sample.xlsx\>\"", ",", "\"\<Sheet1\>\"", ",", " ", 
+    "\"\<SummaryTable\>\""}], "]"}], " ", "//", " ", "TableForm"}]], "Input",
+ CellChangeTimes->{{3.6375206194440002`*^9, 3.637520621784*^9}, 
+   3.6375207318732*^9}],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"\<\"GDP (QoQ)\"\>", "\<\"14Q4\"\>", "0.6`"},
+    {"\<\"Service sector output (3Mo3M)\"\>", "\<\"3m to January\"\>", "0.8`"},
+    {"\<\"Industrial production (3Mo3M)\"\>", "\<\"3m to January\"\>", "0.`"},
+    {"\<\"Manufacturing output (3Mo3M)\"\>", "\<\"3m to January\"\>", "0.4`"},
+    {"\<\"GfK Consumer Confidence\"\>", "\<\"March\"\>", "4.`"},
+    {"\<\"Retail sales volumes (YoY)\"\>", "\<\"February\"\>", "5.7`"},
+    {"\<\"Fixed investment (QoQ)\"\>", "\<\"14Q4\"\>", 
+     RowBox[{"-", "0.6`"}]},
+    {"\<\"Goods exports (volumes) (MoM)\"\>", "\<\"January \"\>", 
+     RowBox[{"-", "3.1`"}]},
+    {"\<\"Goods imports (volumes) (MoM)\"\>", "\<\"January \"\>", 
+     RowBox[{"-", "4.8`"}]},
+    {"\<\"Current account balance, \[Sterling]bn\"\>", "\<\"14Q4\"\>", 
+     RowBox[{"-", "25.3`"}]},
+    {"\<\"Business Investment (QoQ)\"\>", "\<\"14Q4\"\>", 
+     RowBox[{"-", "0.9`"}]}
+   },
+   GridBoxAlignment->{
+    "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+     "RowsIndexed" -> {}},
+   GridBoxSpacings->{"Columns" -> {
+       Offset[0.27999999999999997`], {
+        Offset[2.0999999999999996`]}, 
+       Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+       Offset[0.2], {
+        Offset[0.4]}, 
+       Offset[0.2]}, "RowsIndexed" -> {}}],
+  Function[BoxForm`e$, 
+   TableForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{3.6375697285453997`*^9, 3.6375698385481997`*^9}]
 }, Open  ]],
 
 Cell[TextData[{
@@ -148,44 +231,22 @@ Cell[TextData[{
 format expected by ",
  StyleBox["DateListPlot", "Code"],
  ". Data are assumed to be set up in columns, with header rows. By default, \
-dates are assumed to be in column A, although this can be overridden using \
-the ",
- StyleBox["dateColumn", "Code",
-  FontWeight->"Bold"],
- " option."
+dates are in column A."
 }], "Text",
  CellChangeTimes->{{3.6371143486579*^9, 3.6371145344358997`*^9}, {
-  3.6371161174811*^9, 3.6371161193063*^9}}],
+  3.6371161174811*^9, 3.6371161193063*^9}, {3.6375695630294*^9, 
+  3.6375695660246*^9}}],
 
-Cell[CellGroupData[{
+Cell["This demo uses data at the following URL:", "Text",
+ CellChangeTimes->{{3.6375206484444*^9, 3.6375206590992002`*^9}, 
+   3.637520769672*^9, {3.6375547907992*^9, 3.637554791002*^9}}],
 
-Cell[BoxData[{
+Cell[BoxData[
  RowBox[{
   RowBox[{
-  "unempDataURL", " ", "=", " ", 
+  "labourDataURL", " ", "=", " ", 
    "\"\<http://www.rba.gov.au/statistics/tables/xls/h05hist.xls\>\""}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"data", "=", " ", 
-   RowBox[{"importExcelTS", "[", 
-    RowBox[{"unempDataURL", ",", 
-     RowBox[{"{", 
-      RowBox[{"\"\<Data\>\"", ",", 
-       RowBox[{"{", 
-        RowBox[{"\"\<K:K\>\"", ",", "\"\<C:C\>\"", ",", "\"\<I:I\>\""}], 
-        "}"}]}], "}"}], ",", " ", 
-     RowBox[{"dropHeaderRows", "\[Rule]", " ", "11"}]}], "]"}]}], " ", 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"{", 
-   RowBox[{
-    RowBox[{"{", 
-     RowBox[{
-     "\"\<AUS Unemployment Rate\>\"", ",", "\"\<AUS Participation Rate\>\"", 
-      ",", "\"\<AUS Employment:Population\>\""}], "}"}], ",", 
-    "\[IndentingNewLine]", 
-    RowBox[{"DateListPlot", " ", "/@", " ", "data"}]}], "}"}], "//", 
-  "TableForm"}]}], "Input",
+  ";"}]], "Input",
  CellChangeTimes->{{3.6371116778891*^9, 3.6371117001380997`*^9}, {
    3.6371117905829*^9, 3.6371117920961*^9}, {3.6371118631198997`*^9, 
    3.6371119364247*^9}, {3.6371119884511003`*^9, 3.6371119996363*^9}, {
@@ -197,12 +258,65 @@ Cell[BoxData[{
    3.6371140404473*^9, 3.6371140528935003`*^9}, 3.6371140839277*^9, {
    3.6371141271031*^9, 3.6371141296459*^9}, {3.6371141711147003`*^9, 
    3.6371141840390997`*^9}, {3.6371142290348997`*^9, 3.6371143219719*^9}, {
-   3.6371160514151*^9, 3.6371161016315002`*^9}}],
+   3.6371160514151*^9, 3.6371161016315002`*^9}, {3.6375206357928*^9, 
+   3.6375206725308*^9}}],
+
+Cell[TextData[{
+ "This spreadsheet contains three data ranges of interest, in columns K, C, \
+and I. The dates for each observation are in column A,  which we could \
+override by passing the option ",
+ StyleBox["dateColumn", "Code",
+  FontWeight->"Bold"],
+ " -> \[OpenCurlyDoubleQuote]X\[CloseCurlyDoubleQuote]."
+}], "Text",
+ CellChangeTimes->{{3.6375206781935997`*^9, 3.6375206974596*^9}, 
+   3.6375207737279997`*^9, {3.6375694963705997`*^9, 3.6375696035425997`*^9}, {
+   3.6375710950971003`*^9, 3.6375711123838*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"data", "=", " ", 
+   RowBox[{"importExcelTS", "[", 
+    RowBox[{"labourDataURL", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"\"\<Data\>\"", ",", "\"\<K:K\>\""}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"\"\<Data\>\"", ",", "\"\<C:C\>\""}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"\"\<Data\>\"", ",", "\"\<I:I\>\""}], "}"}]}], "}"}], ",", 
+     " ", 
+     RowBox[{"dropHeaderRows", "\[Rule]", " ", "11"}]}], "]"}]}], " ", 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.6371116778891*^9, 3.6371117001380997`*^9}, {
+   3.6371117905829*^9, 3.6371117920961*^9}, {3.6371118631198997`*^9, 
+   3.6371119364247*^9}, {3.6371119884511003`*^9, 3.6371119996363*^9}, {
+   3.6371120426281*^9, 3.6371120799632998`*^9}, 3.6371121785601*^9, {
+   3.6371122668729*^9, 3.6371122674501*^9}, {3.6371124255079*^9, 
+   3.6371124347601*^9}, {3.6371125142686996`*^9, 3.6371125538785*^9}, {
+   3.6371133987725*^9, 3.6371134594425*^9}, {3.6371135620051003`*^9, 
+   3.6371135837731*^9}, {3.6371139787595*^9, 3.6371139851097*^9}, {
+   3.6371140404473*^9, 3.6371140528935003`*^9}, 3.6371140839277*^9, {
+   3.6371141271031*^9, 3.6371141296459*^9}, {3.6371141711147003`*^9, 
+   3.6371141840390997`*^9}, {3.6371142290348997`*^9, 3.6371143219719*^9}, {
+   3.6371160514151*^9, 3.6371161016315002`*^9}, {3.6375206357928*^9, 
+   3.6375206725308*^9}, 3.6375548010952*^9, 3.6375698135164003`*^9, {
+   3.6375698517558002`*^9, 3.6375698518182*^9}, {3.6375700056368*^9, 
+   3.6375700164994*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"{", 
+   RowBox[{"DateListPlot", "/@", "data"}], "}"}], " ", "//", " ", 
+  "TableForm"}]], "Input",
+ CellChangeTimes->{{3.6375696866282*^9, 3.6375697039598*^9}, {
+  3.6375710371998*^9, 3.6375710386974*^9}}],
 
 Cell[BoxData[
  TagBox[GridBox[{
-    {"\<\"AUS Unemployment Rate\"\>", "\<\"AUS Participation Rate\"\>", \
-"\<\"AUS Employment:Population\"\>"},
     {
      GraphicsBox[{{}, {{}, {}, 
         {RGBColor[0.368417, 0.506779, 0.709798], PointSize[
@@ -521,6 +635,7 @@ NlmnBR7+Uxwv0Sffzwp0W0AnvKE0mPRHovoBLcQv+f1LJhvcAju/6KrStY3E
            FormBox[
             InterpretationBox[
              StyleBox[
+              
               GraphicsBox[{}, ImageSize -> {0, 0}, BaselinePosition -> 
                Baseline], "CacheGraphics" -> False], 
              Spacer[{0, 0}]], TraditionalForm]}, {2.3352192*^9, 
@@ -576,7 +691,6 @@ NlmnBR7+Uxwv0Sffzwp0W0AnvKE0mPRHovoBLcQv+f1LJhvcAju/6KrStY3E
            FormBox[
             InterpretationBox[
              StyleBox[
-              
               GraphicsBox[{}, ImageSize -> {0, 0}, BaselinePosition -> 
                Baseline], "CacheGraphics" -> False], 
              Spacer[{0, 0}]], TraditionalForm]}, {2.9663712*^9, 
@@ -799,7 +913,6 @@ qBs91cc8C5U64GH7lR970cNpHtsBaobyzt0G6POf0AG9eWM+35N4/geuCcg4
            FormBox[
             InterpretationBox[
              StyleBox[
-              
               GraphicsBox[{}, ImageSize -> {0, 0}, BaselinePosition -> 
                Baseline], "CacheGraphics" -> False], 
              Spacer[{0, 0}]], TraditionalForm]}, {2.3352192*^9, 
@@ -1002,6 +1115,7 @@ qBs91cc8C5U64GH7lR970cNpHtsBaobyzt0G6POf0AG9eWM+35N4/geuCcg4
            FormBox[
             InterpretationBox[
              StyleBox[
+              
               GraphicsBox[{}, ImageSize -> {0, 0}, BaselinePosition -> 
                Baseline], "CacheGraphics" -> False], 
              Spacer[{0, 0}]], TraditionalForm]}, {2.650752*^9, 
@@ -1057,7 +1171,6 @@ qBs91cc8C5U64GH7lR970cNpHtsBaobyzt0G6POf0AG9eWM+35N4/geuCcg4
            FormBox[
             InterpretationBox[
              StyleBox[
-              
               GraphicsBox[{}, ImageSize -> {0, 0}, BaselinePosition -> 
                Baseline], "CacheGraphics" -> False], 
              Spacer[{0, 0}]], TraditionalForm]}, {3.281904*^9, 
@@ -1330,7 +1443,6 @@ VsL/A9ufupg=
            FormBox[
             InterpretationBox[
              StyleBox[
-              
               GraphicsBox[{}, ImageSize -> {0, 0}, BaselinePosition -> 
                Baseline], "CacheGraphics" -> False], 
              Spacer[{0, 0}]], TraditionalForm]}, {3.218832*^9, 
@@ -1379,6 +1491,7 @@ VsL/A9ufupg=
            FormBox[
             InterpretationBox[
              StyleBox[
+              
               GraphicsBox[{}, ImageSize -> {0, 0}, BaselinePosition -> 
                Baseline], "CacheGraphics" -> False], 
              Spacer[{0, 0}]], TraditionalForm]}}, {{2.2089888*^9, 
@@ -1583,14 +1696,12 @@ VsL/A9ufupg=
        Offset[0.2]}, "RowsIndexed" -> {}}],
   Function[BoxForm`e$, 
    TableForm[BoxForm`e$]]]], "Output",
- CellChangeTimes->{
-  3.6371140879681*^9, 3.6371141357299*^9, 3.6371141894749002`*^9, 
-   3.6371142348225*^9, 3.6371143270439*^9, 3.6371160176411*^9, {
-   3.6371160830362997`*^9, 3.6371161068419*^9}}]
+ CellChangeTimes->{{3.6375697056134*^9, 3.6375697314314003`*^9}, 
+   3.637569840545*^9, {3.6375710257806*^9, 3.6375710398674*^9}}]
 }, Open  ]]
 },
 WindowSize->{958, 702},
-WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowMargins->{{Automatic, 1}, {Automatic, 4}},
 FrontEndVersion->"10.0 for Microsoft Windows (64-bit) (December 4, 2014)",
 StyleDefinitions->"Default.nb"
 ]
@@ -1605,17 +1716,31 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 902, 19, 205, "Text"],
-Cell[1463, 41, 720, 11, 31, "Input"],
-Cell[2186, 54, 637, 10, 100, "Text"],
+Cell[558, 20, 920, 19, 205, "Text"],
 Cell[CellGroupData[{
-Cell[2848, 68, 1256, 24, 52, "Input"],
-Cell[4107, 94, 2333, 45, 177, "Output"]
+Cell[1503, 43, 793, 12, 31, "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[2299, 57, 1256, 23, 31, "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}]
+}, Closed]],
+Cell[3570, 83, 506, 10, 59, "Text"],
+Cell[CellGroupData[{
+Cell[4101, 97, 1371, 24, 31, "Input"],
+Cell[5475, 123, 2377, 45, 191, "Output"]
 }, Open  ]],
-Cell[6455, 142, 599, 15, 119, "Text"],
+Cell[7867, 171, 418, 7, 49, "Text"],
 Cell[CellGroupData[{
-Cell[7079, 161, 1729, 38, 92, "Input"],
-Cell[8811, 201, 62942, 1387, 155, "Output"]
+Cell[8310, 182, 293, 7, 31, "Input"],
+Cell[8606, 191, 1463, 31, 191, "Output"]
+}, Open  ]],
+Cell[10084, 225, 517, 12, 100, "Text"],
+Cell[10604, 239, 187, 2, 30, "Text"],
+Cell[10794, 243, 1027, 18, 31, "Input"],
+Cell[11824, 263, 518, 10, 49, "Text"],
+Cell[12345, 275, 1536, 30, 52, "Input"],
+Cell[CellGroupData[{
+Cell[13906, 309, 240, 6, 31, "Input"],
+Cell[14149, 317, 62745, 1382, 154, "Output"]
 }, Open  ]]
 }
 ]
