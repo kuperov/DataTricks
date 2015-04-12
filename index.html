@@ -7,7 +7,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
  <title>
-  demo2 (Wolfram Mathematica 9.0 for Students - Personal Use Only : www.wolfram.com)
+  demo-blah (Wolfram Mathematica 9.0 for Students - Personal Use Only : www.wolfram.com)
  </title>
  <link href="HTMLFiles/index.css" rel="stylesheet" type="text/css" />
 </head>
@@ -18,13 +18,29 @@
  <span class="SectionInline">DataTricks</span><br /><br /><span style='font-weight: bold;'>DataTricks</span> is a simple <span style='font-style: italic;'>Mathematica</span> package for extracting data from Excel workbooks. It does not depend on ExcelLink, and improves upon the built-in <span style='font-weight: bold;'>Import</span> command in several ways:<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;1. There are no limits to the size of the workbook that can be imported; <br />&nbsp;&nbsp;&nbsp;&nbsp;2. All workbook formats readable by Excel can be imported;<br />&nbsp;&nbsp;&nbsp;&nbsp;3. Workbooks can refresh their sources before the data are extracted; and<br />&nbsp;&nbsp;&nbsp;&nbsp;4. Excel ranges and Named ranges can be used to select data.
 </p>
 
+
+
+<p class="Text">
+ To install, download DataTricks.m to your computer and choose <span style='font-weight: bold;'>Install...</span> from <span style='font-style: italic;'>Mathematica</span>&rsquo;s <span style='font-weight: bold;'>File</span> menu. Choose &lsquo;File&rsquo; as the source, and select the downloaded file. Then, in your notebook, include the following line:
+</p>
+
+
+
 <p class="Input">
  <img src="HTMLFiles/index_1.gif" alt="index_1.gif" width="157" height="13" style="vertical-align:middle" />
 </p>
 
 <p class="Text">
+ <span style='font-weight: bold;'>DataTricks</span> provides two functions: <span style='font-weight: bold;'>importExcel[ ... ]</span> and <span style='font-weight: bold;'>importExcelTS[ ... ]</span> for time-series data. See below for usage examples, or <span><a href="http://kuperov.github.io/DataTricks/test_script/index.html"><span class="HyperlinkInline">the validation script</span></a></span> for more examples.
+</p>
+
+
+
+<p class="Text">
  <span class="SubsectionInline">Example 1 : A Simple Table<br /></span>The simplest way to import data is to call <span style='font-weight: bold;'>importExcel[...]</span> with the file name, sheet name, and an Excel range reference:
 </p>
+
+
 
 <p class="Input">
  <img src="HTMLFiles/index_2.gif" alt="index_2.gif" width="515" height="13" style="vertical-align:middle" />
@@ -157,7 +173,7 @@
 </table>
 
 <p class="Text">
- <span class="SubsectionInline">Example 2 : Time Series Data</span><br /><br /><span style='font-weight: bold;'>DataTricks</span> includes some convenience methods for loading time series data, in the format expected by <span style='font-weight: bold;'>DateListPlot</span>. Data are assumed to be set up in columns, with header rows. By default, dates are in column A.
+ <span class="SubsectionInline">Example 2 : Time Series Data</span><br /><br /><span class="CodeInline">DataTricks</span> includes some convenience methods for loading time series data, in the format expected by <span class="CodeInline">DateListPlot</span>. Data are assumed to be set up in columns, with header rows. By default, dates are in column A.
 </p>
 
 
@@ -173,7 +189,7 @@
 </p>
 
 <p class="Text">
- This spreadsheet contains three data ranges of interest, in columns K, C, and I. The dates for each observation are in column A,&nbsp;&nbsp;which we could override by passing the option <span style='font-weight: bold;'>dateColumn</span> -&gt; &ldquo;X&rdquo;.
+ This spreadsheet contains three data ranges of interest, in columns K, C, and I. The dates for each observation are in column A,&nbsp;&nbsp;which we could override by passing the option <span class='CodeInline' style='font-weight: bold;'>dateColumn</span> -&gt; &ldquo;X&rdquo;.
 </p>
 
 

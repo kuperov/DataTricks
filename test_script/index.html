@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN"
+        "HTMLFiles/xhtml-math11-f.dtd">
+
+<!-- Created by Wolfram Mathematica 9.0 for Students - Personal Use Only : www.wolfram.com -->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+ <title>
+  Untitled (Wolfram Mathematica 9.0 for Students - Personal Use Only : www.wolfram.com)
+ </title>
+ <link href="HTMLFiles/index.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+<p class="Title">
+ DataTricks : Validation Script
+</p>
+
+
+
+<p class="Text">
+ Unit test script. Timings were generated on a 2009 13&rdquo; MBP laptop (2.2GHz) under Windows 7.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_1.gif" alt="index_1.gif" width="288" height="65" style="vertical-align:middle" />
+</p>
+
+<p class="Section">
+ Range Tests
+</p>
+
+
+
+<p class="Text">
+ Cell ranges should be trimmed to the 'used' extent of the spreadsheet:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_2.gif" alt="index_2.gif" width="703" height="48" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_3.gif" alt="index_3.gif" width="867" height="48" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ When a single range is specified directly (not as a list of lists), the range should not be given in a list:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_4.gif" alt="index_4.gif" width="670" height="65" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ The workbook should actually be evaluated (the saved cell values are not simply retrieved verbatim) when it is loaded. We can check this by retrieving ranges with random numbers multiple times. Deterministic columns (like Variable 1) should return the same values, but columns with random number formulas (like Variable 2) should be different with probability 1:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_5.gif" alt="index_5.gif" width="638" height="99" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Should correctly read in a table range (which has the advantage of being a dynamic named range, so the dataset is always appropriately sized):
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_6.gif" alt="index_6.gif" width="487" height="31" style="vertical-align:middle" />
+</p>
+
+<p class="Section">
+ Data Type Tests
+</p>
+
+
+
+<p class="Text">
+ Check in-band error indicators are properly handled, and that values in the output have the right data types. 
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_7.gif" alt="index_7.gif" width="559" height="48" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Dates should be presented as date Lists :
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_8.gif" alt="index_8.gif" width="581" height="201" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Even if decimal places are hidden in the spreadsheet view (as for Variable 3a), we should still retrieve the values to full precision:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_9.gif" alt="index_9.gif" width="915" height="31" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Cells hidden by merging should show as 'Null':
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_10.gif" alt="index_10.gif" width="542" height="65" style="vertical-align:middle" />
+</p>
+
+<p class="Section">
+ Time Series Tests
+</p>
+
+
+
+<p class="Text">
+ Now we deal with time series observations, which are common in Economics. Data must be arranged in columns, and by default the reference dates are found in column A:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_11.gif" alt="index_11.gif" width="659" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ The retrieved data series must be in the correct format for <span style='font-weight: bold;'>DateListPlot</span>, which is smart enough to drop non-numeric data.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_12.gif" alt="index_12.gif" width="141" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_13.gif" alt="index_13.gif" width="360" height="229" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Multiple time series at once, to produce a rather silly graph:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_14.gif" alt="index_14.gif" width="552" height="65" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_15.gif" alt="index_15.gif" width="360" height="229" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ With a non-standard date column. Note the user forgot the <span style='font-weight: bold;'>dropHeaderRows </span>option, but they were dropped automatically because the first four rows were not valid dates.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_16.gif" alt="index_16.gif" width="672" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_17.gif" alt="index_17.gif" width="360" height="229" style="vertical-align:middle" />
+</p>
+
+<p class="Section">
+ Data Refresh Tests
+</p>
+
+
+
+<p class="Text">
+ Variable 7 is saved pointing to an <span style='font-style: italic;'>old</span> version of the data. In the original, there is only about a year of data; in the updated version of the source data sheet there are much more data. So we should load different datasets, depending on whether we refresh or not.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_18.gif" alt="index_18.gif" width="710" height="82" style="vertical-align:middle" />
+</p>
+
+<p class="Section">
+ Speed Tests on Typical Datasets
+</p>
+
+
+
+<p class="Text">
+ This dataset was designed to represent a spreadsheet of the size typically used to create graphs in Economics: 7 monthly series, each 18 years in length. Some series have a variety of errors and missing values, which are handled gracefully.
+</p>
+
+
+
+<p class="Text">
+ Import the whole sheet:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_19.gif" alt="index_19.gif" width="681" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_20.gif" alt="index_20.gif" width="265" height="14" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ A subset of columns at a time:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_21.gif" alt="index_21.gif" width="544" height="99" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_22.gif" alt="index_22.gif" width="265" height="14" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Now, load an entire <span style='font-weight: bold;'>5MB XLSX </span>file.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_23.gif" alt="index_23.gif" width="461" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_24.gif" alt="index_24.gif" width="286" height="14" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ And a subset of columns from this file :
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_25.gif" alt="index_25.gif" width="485" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_26.gif" alt="index_26.gif" width="272" height="14" style="vertical-align:middle" />
+</p>
+
+<p class="Section">
+ Speed Tests on Large Datasets
+</p>
+
+
+
+<p class="Text">
+ This workbook contains a single, large dataset, 500 columns wide, with 10 header rows and 10000 data rows.<br />First, the <span style='font-weight: bold;'>34MB XLSB file</span> (note the built-in Import function does not even support XLSB files).
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_27.gif" alt="index_27.gif" width="559" height="65" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_28.gif" alt="index_28.gif" width="279" height="14" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Now, the same tests on the <span style='font-weight: bold;'>61MB XLSM file</span>. XLSX files are larger and more complex, and so take longer to parse:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_29.gif" alt="index_29.gif" width="527" height="65" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_30.gif" alt="index_30.gif" width="279" height="14" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Now, how long to import all 5 million cells in the giant sheet?
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_31.gif" alt="index_31.gif" width="453" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_32.gif" alt="index_32.gif" width="293" height="14" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Same again but for the 61MB XLSM sheet:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_33.gif" alt="index_33.gif" width="453" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="Print">
+ <img src="HTMLFiles/index_34.gif" alt="index_34.gif" width="300" height="14" style="vertical-align:middle" />
+</p>
+
+<p class="Section">
+ Invalid Input
+</p>
+
+
+
+<p class="Text">
+ Returns $Failed and outputs error messages when the user requests things wrongly. It should be pretty obvious what went wrong, but note that we don&rsquo;t suppress exceptions raised by Excel here, in case the errors are actually due to something else we didn&rsquo;t fully anticipate.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_35.gif" alt="index_35.gif" width="147" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="Message">
+ <img src="HTMLFiles/index_36.gif" alt="index_36.gif" width="232" height="16" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_37.gif" alt="index_37.gif" width="55" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_38.gif" alt="index_38.gif" width="180" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="Message">
+ <img src="HTMLFiles/index_39.gif" alt="index_39.gif" width="232" height="16" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_40.gif" alt="index_40.gif" width="55" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_41.gif" alt="index_41.gif" width="361" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="Message">
+ <img src="HTMLFiles/index_42.gif" alt="index_42.gif" width="232" height="16" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_43.gif" alt="index_43.gif" width="71" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Attempting to import a file that does not exist :
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_44.gif" alt="index_44.gif" width="249" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="Message">
+ <img src="HTMLFiles/index_45.gif" alt="index_45.gif" width="250" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_46.gif" alt="index_46.gif" width="55" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Or if the sheet doesn' t exist.
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_47.gif" alt="index_47.gif" width="484" height="31" style="vertical-align:middle" />
+</p>
+
+<p class="Message">
+ <img src="HTMLFiles/index_48.gif" alt="index_48.gif" width="763" height="50" style="vertical-align:middle" />
+</p>
+
+<p class="Message">
+ <img src="HTMLFiles/index_49.gif" alt="index_49.gif" width="303" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_50.gif" alt="index_50.gif" width="71" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="Message">
+ <img src="HTMLFiles/index_51.gif" alt="index_51.gif" width="763" height="50" style="vertical-align:middle" />
+</p>
+
+<p class="Message">
+ <img src="HTMLFiles/index_52.gif" alt="index_52.gif" width="316" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_53.gif" alt="index_53.gif" width="71" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="Text">
+ Invalid range:
+</p>
+
+
+
+<p class="Input">
+ <img src="HTMLFiles/index_54.gif" alt="index_54.gif" width="462" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="Message">
+ <img src="HTMLFiles/index_55.gif" alt="index_55.gif" width="742" height="82" style="vertical-align:middle" />
+</p>
+
+<p class="Message">
+ <img src="HTMLFiles/index_56.gif" alt="index_56.gif" width="290" height="16" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_57.gif" alt="index_57.gif" width="71" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_58.gif" alt="index_58.gif" width="480" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="Message">
+ <img src="HTMLFiles/index_59.gif" alt="index_59.gif" width="742" height="82" style="vertical-align:middle" />
+</p>
+
+<p class="Message">
+ <img src="HTMLFiles/index_60.gif" alt="index_60.gif" width="321" height="16" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_61.gif" alt="index_61.gif" width="55" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="Input">
+ <img src="HTMLFiles/index_62.gif" alt="index_62.gif" width="625" height="13" style="vertical-align:middle" />
+</p>
+
+<p class="Message">
+ <img src="HTMLFiles/index_63.gif" alt="index_63.gif" width="817" height="16" style="vertical-align:middle" />
+</p>
+
+<p class="Output">
+ <img src="HTMLFiles/index_64.gif" alt="index_64.gif" width="55" height="13" style="vertical-align:middle" />
+</p>
+
+
+
+
+<div style="font-family:Helvetica; font-size:11px; width:100%; border:1px none #999999; border-top-style:solid; padding-top:2px; margin-top:20px;">
+ <a href="http://www.wolfram.com/products/mathematica/" style="color:#000; text-decoration:none;">
+  <img src="HTMLFiles/spikeyIcon.png" alt="Spikey" width="20" height="21" style="padding-right:2px; border:0px solid white; vertical-align:middle;" />
+  <span style="color:#555555">Created with</span> Wolfram <span style="font-style: italic;">Mathematica</span> 9.0
+ </a>
+</div>
+</body>
+
+</html>
