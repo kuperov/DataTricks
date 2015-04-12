@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     77983,       1740]
-NotebookOptionsPosition[     76910,       1702]
-NotebookOutlinePosition[     77253,       1717]
-CellTagsIndexPosition[     77210,       1714]
+NotebookDataLength[     79249,       1780]
+NotebookOptionsPosition[     78099,       1740]
+NotebookOutlinePosition[     78442,       1755]
+CellTagsIndexPosition[     78399,       1752]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -21,13 +21,15 @@ Notebook[{
 Cell[TextData[{
  StyleBox["DataTricks", "Section"],
  "\n\n",
- StyleBox["DataTricks", "Code"],
+ StyleBox["DataTricks",
+  FontWeight->"Bold"],
  " is a simple ",
  StyleBox["Mathematica",
   FontSlant->"Italic"],
  " package for extracting data from Excel workbooks. It does not depend on \
 ExcelLink, and improves upon the built-in ",
- StyleBox["Import", "Code"],
+ StyleBox["Import",
+  FontWeight->"Bold"],
  " command in several ways:\n\n\t1. There are no limits to the size of the \
 workbook that can be imported; \n\t2. All workbook formats readable by Excel \
 can be imported;\n\t3. Workbooks can refresh their sources before the data \
@@ -38,6 +40,22 @@ data."
    3.6371147371391*^9, 3.6371148189623003`*^9}, {3.6371148578157*^9, 
    3.6371149031329*^9}, {3.6371150171889*^9, 3.6371150428169003`*^9}, {
    3.6371151485083*^9, 3.6371151561366997`*^9}, 3.6375209679172*^9}],
+
+Cell[TextData[{
+ "To install, download DataTricks.m to your computer and choose ",
+ StyleBox["Install...",
+  FontWeight->"Bold"],
+ " from ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ "\[CloseCurlyQuote]s ",
+ StyleBox["File",
+  FontWeight->"Bold"],
+ " menu. Choose \[OpenCurlyQuote]File\[CloseCurlyQuote] as the source, and \
+select the downloaded file. Then, in your notebook, include the following \
+line:"
+}], "Text",
+ CellChangeTimes->{{3.6378202824849997`*^9, 3.6378203744625998`*^9}}],
 
 Cell[CellGroupData[{
 
@@ -80,6 +98,26 @@ Cell[BoxData[
    3.6371170252214003`*^9}, 3.6375204961104*^9, {3.6375209425048*^9, 
    3.637520958916*^9}}]
 }, Closed]],
+
+Cell[TextData[{
+ StyleBox["DataTricks",
+  FontWeight->"Bold"],
+ " provides two functions: ",
+ StyleBox["importExcel[ ... ]",
+  FontWeight->"Bold"],
+ " and ",
+ StyleBox["importExcelTS[ ... ]",
+  FontWeight->"Bold"],
+ " for time-series data. See below for usage examples, or ",
+ ButtonBox["the validation script",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://kuperov.github.io/DataTricks/test_script/index.html"], None},
+  ButtonNote->"http://kuperov.github.io/DataTricks/test_script/index.html"],
+ " for more examples."
+}], "Text",
+ CellChangeTimes->{{3.6378203908269997`*^9, 3.6378205084278*^9}, {
+  3.6378205987956*^9, 3.6378206031168003`*^9}}],
 
 Cell[TextData[{
  StyleBox["Example 1 : A Simple Table\n", "Subsection"],
@@ -1716,31 +1754,33 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 920, 19, 205, "Text"],
+Cell[558, 20, 948, 21, 205, "Text"],
+Cell[1509, 43, 497, 14, 49, "Text"],
 Cell[CellGroupData[{
-Cell[1503, 43, 793, 12, 31, "Input",
+Cell[2031, 61, 793, 12, 31, "Input",
  CellGroupingRules->{GroupTogetherGrouping, 10000.}],
-Cell[2299, 57, 1256, 23, 31, "Input",
+Cell[2827, 75, 1256, 23, 31, "Input",
  CellGroupingRules->{GroupTogetherGrouping, 10000.}]
 }, Closed]],
-Cell[3570, 83, 506, 10, 59, "Text"],
+Cell[4098, 101, 658, 18, 46, "Text"],
+Cell[4759, 121, 506, 10, 62, "Text"],
 Cell[CellGroupData[{
-Cell[4101, 97, 1371, 24, 31, "Input"],
-Cell[5475, 123, 2377, 45, 191, "Output"]
+Cell[5290, 135, 1371, 24, 31, "Input"],
+Cell[6664, 161, 2377, 45, 177, "Output"]
 }, Open  ]],
-Cell[7867, 171, 418, 7, 49, "Text"],
+Cell[9056, 209, 418, 7, 49, "Text"],
 Cell[CellGroupData[{
-Cell[8310, 182, 293, 7, 31, "Input"],
-Cell[8606, 191, 1463, 31, 191, "Output"]
+Cell[9499, 220, 293, 7, 31, "Input"],
+Cell[9795, 229, 1463, 31, 177, "Output"]
 }, Open  ]],
-Cell[10084, 225, 517, 12, 100, "Text"],
-Cell[10604, 239, 187, 2, 30, "Text"],
-Cell[10794, 243, 1027, 18, 31, "Input"],
-Cell[11824, 263, 518, 10, 49, "Text"],
-Cell[12345, 275, 1536, 30, 52, "Input"],
+Cell[11273, 263, 517, 12, 100, "Text"],
+Cell[11793, 277, 187, 2, 30, "Text"],
+Cell[11983, 281, 1027, 18, 31, "Input"],
+Cell[13013, 301, 518, 10, 49, "Text"],
+Cell[13534, 313, 1536, 30, 52, "Input"],
 Cell[CellGroupData[{
-Cell[13906, 309, 240, 6, 31, "Input"],
-Cell[14149, 317, 62745, 1382, 154, "Output"]
+Cell[15095, 347, 240, 6, 31, "Input"],
+Cell[15338, 355, 62745, 1382, 140, "Output"]
 }, Open  ]]
 }
 ]
