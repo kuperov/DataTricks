@@ -12,7 +12,7 @@ ranges, so that range coordinates do not have to be hard-coded.
 This package is experimental, so use at your own risk. If you discover
 problems, please [file a bug report](https://github.com/kuperov/DataTricks/issues/new).
 
-To install, download DataTricks.m to your computer and choose Install... from Mathematica’s File menu. Choose ‘File’ as the source, and select the downloaded file. Then, in your notebook, include the following line:
+To install, download [DataTricks.m](https://raw.githubusercontent.com/kuperov/DataTricks/master/DataTricks.m) to your computer and choose Install... from Mathematica’s File menu. Choose ‘File’ as the source, and select the downloaded file. Then, in your notebook, include the following line:
 
     Needs["DataTricks`"]
 
