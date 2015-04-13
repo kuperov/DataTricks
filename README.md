@@ -9,13 +9,18 @@ can not have a spreadsheet refresh its data sources.
 DataTricks also allows range definitions (in R1C1 format) and named
 ranges, so that range coordinates do not have to be hard-coded.
 
-Documentation is available in *demo.nb*, or [at this page](http://kuperov.github.io/DataTricks/).
-Unit tests are available in *test_script.nb*, 
-or [at this page](http://kuperov.github.io/DataTricks/test_script/index.html).
-
 This package is experimental, so use at your own risk. If you discover
 problems, please [file a bug report](https://github.com/kuperov/DataTricks/issues/new).
 
+To install, download DataTricks.m to your computer and choose Install... from Mathematica’s File menu. Choose ‘File’ as the source, and select the downloaded file. Then, in your notebook, include the following line:
+
+    Needs["DataTricks`"]
+
+DataTricks provides two functions: _importExcel[...]_ and _importExcelTS[...]_ for time-series data.
+
+Documentation is available in *demo.nb*, or [at this page](http://kuperov.github.io/DataTricks/).
+Unit tests are available in *test_script.nb*, 
+or [at this page](http://kuperov.github.io/DataTricks/test_script/index.html).
 
 
 
@@ -40,4 +45,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
